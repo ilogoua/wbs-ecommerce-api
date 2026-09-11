@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import usersRouter from './routes/users.ts';
+import categoriesRouter from './routes/categories.ts';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.get('/', (_req, res) => {
 });
 
 app.use('/users', usersRouter);
+app.use('/categories', categoriesRouter);
 
 await connectToDatabase();
 app.listen(PORT, () => {
